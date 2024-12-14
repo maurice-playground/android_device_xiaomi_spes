@@ -13,3 +13,6 @@ allow init proc:file write;
 allow init proc_tp_gesture:file rw_file_perms;
 allow init sysfs:file setattr;
 allow init sysfs_android_usb:file rw_file_perms;
+
+allow init vendor_sysfs_battery_supply:file { open read getattr };
+allow init vendor_sysfs_usb_supply:file { open read getattr };
