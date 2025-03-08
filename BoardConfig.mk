@@ -8,8 +8,6 @@ DEVICE_PATH := device/xiaomi/spes
 KERNEL_PATH := device/xiaomi/spes-kernel
 
 # A/B
-AB_OTA_UPDATER := true
-
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
