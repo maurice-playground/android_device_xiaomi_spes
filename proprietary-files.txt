@@ -152,7 +152,6 @@ vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|0eef499251b171cbb4099786fd
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|6e36d92f07d5adee0f3b3379a28788c75fd63365
 
 # Camera
-vendor/bin/f2player
 vendor/lib64/camera/com.qti.sensor.k7t_gc02m1_macro.so
 vendor/lib64/camera/com.qti.sensor.k7t_gc08a3_ultra.so
 vendor/lib64/camera/com.qti.sensor.k7t_ov02b1b_depth.so
