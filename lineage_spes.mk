@@ -16,9 +16,6 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Inherit my keys
-$(call inherit-product, vendor/mine/keys/keys.mk)
-
 # Product Specifics
 PRODUCT_NAME := lineage_spes
 PRODUCT_DEVICE := spes
