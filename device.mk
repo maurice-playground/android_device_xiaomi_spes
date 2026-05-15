@@ -485,3 +485,8 @@ PRODUCT_COPY_FILES += \
 # XiaomiParts
 include packages/apps/XiaomiParts/device.mk
 
+# USB Debugging
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.usb.config=mtp,adb
+endif
