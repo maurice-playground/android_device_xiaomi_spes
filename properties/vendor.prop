@@ -274,3 +274,10 @@ ro.soc.model=SM6225
 
 # Zygote
 zygote.critical_window.minute=10
+
+# ScrollOptimizer
+persist.sys.perf.scroll_opt=true
+persist.sys.perf.scroll_opt.heavy_app=1
+
+# HWUI ADPF
+debug.sf.enable_adpf_cpu_hint=true
