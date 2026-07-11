@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<boosts>
+    <boost-resource id="0x01fc" name="foreground_cpus">
+        <set resource="cpuset_bg" id="0x0099" value="0-5" />
+        <set resource="cpuset_fg" id="0x009a" value="0-7" />
+        <set resource="cpuset_dex2oat" id="0x009b" value="0-5" />
+    </boost-resource>
+
+    <boost-resource id="0x01fb" name="scroll_boost">
+        <set resource="cpu_min_little" id="0x0004" value="1190400" />
+        <set resource="cpu_min_big" id="0x0005" value="1766400" />
+        <set resource="uclamp_fg_min" id="0x0012" value="30" />
+        <set resource="uclamp_top_min" id="0x0014" value="40" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+        <set resource="gpu_min_freq" id="0x0008" value="600000000" />
+        <set resource="gpu_bus_min" id="0x0007" value="4173" />
+    </boost-resource>
+
+    <boost-resource id="0x01fd" name="latency_boost">
+        <set resource="cpu_min_little" id="0x0004" value="1516800" />
+        <set resource="cpu_min_big" id="0x0005" value="2208000" />
+        <set resource="pmqos_cpu_dma_latency" id="0x0011" value="44" />
+        <set resource="uclamp_fg_min" id="0x0012" value="50" />
+        <set resource="uclamp_top_min" id="0x0014" value="70" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+        <set resource="gpu_min_freq" id="0x0008" value="785000000" />
+        <set resource="gpu_bus_min" id="0x0007" value="11863" />
+        <set resource="cpu_bw_min" id="0x0006" value="11863" />
+        <set resource="ddr_little_min" id="0x000c" value="11863" />
+        <set resource="ddr_big_min" id="0x000d" value="11863" />
+    </boost-resource>
+
+    <boost-resource id="0x01ff" name="launch_boost">
+        <set resource="cpu_min_little" id="0x0004" value="1900800" />
+        <set resource="cpu_min_big" id="0x0005" value="2400000" />
+        <set resource="pmqos_cpu_dma_latency" id="0x0011" value="44" />
+        <set resource="uclamp_fg_min" id="0x0012" value="60" />
+        <set resource="uclamp_top_min" id="0x0014" value="100" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+        <set resource="gpu_min_freq" id="0x0008" value="1114800000" />
+        <set resource="gpu_force_rail" id="0x000a" value="1" />
+        <set resource="gpu_force_clk" id="0x000b" value="1" />
+        <set resource="gpu_bus_min" id="0x0007" value="15960" />
+        <set resource="cpu_bw_min" id="0x0006" value="15960" />
+        <set resource="ddr_little_min" id="0x000c" value="15960" />
+        <set resource="ddr_big_min" id="0x000d" value="15960" />
+    </boost-resource>
+
+    <boost opcode="1" timeout_ms="2200" name="first_launch"><set resource="launch_boost" id="0x01ff" /></boost>
+    <boost opcode="2" timeout_ms="500" name="warm_launch"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="5" timeout_ms="500" name="activity_transition"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="10" timeout_ms="500" name="activity_switch"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="11" timeout_ms="500" name="fling" uc="SvpPolicy" dc="MaxPerformance"><set resource="scroll_boost" id="0x01fb" /></boost>
+    <boost opcode="12" timeout_ms="300" name="scroll_input" uc="SvpPolicy" dc="MaxPerformance">
+        <set resource="uclamp_fg_min" id="0x0012" value="25" />
+        <set resource="uclamp_top_min" id="0x0014" value="25" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+    </boost>
+    <boost opcode="14" timeout_ms="300" name="scroll_vertical"><set resource="scroll_boost" id="0x01fb" /></boost>
+    <boost opcode="15" timeout_ms="300" name="scroll_scroller"><set resource="scroll_boost" id="0x01fb" /></boost>
+    <boost opcode="19" timeout_ms="200" name="touch_boost" uc="SvpPolicy" dc="MaxPerformance">
+        <set resource="uclamp_fg_min" id="0x0012" value="25" />
+        <set resource="uclamp_top_min" id="0x0014" value="25" />
+        <set resource="uclamp_top_lat" id="0x0013" value="1" />
+        <set resource="gpu_min_freq" id="0x0008" value="600000000" />
+        <set resource="foreground_cpus" id="0x01fc" />
+    </boost>
+    <boost opcode="33" timeout_ms="200" name="frame_rescue_light">
+        <set resource="scroll_boost" id="0x01fb" />
+        <set resource="uclamp_fg_min" id="0x0012" value="50" />
+    </boost>
+    <boost opcode="34" timeout_ms="500" name="frame_rescue_heavy">
+        <set resource="latency_boost" id="0x01fd" />
+        <set resource="uclamp_fg_min" id="0x0012" value="70" />
+        <set resource="uclamp_top_min" id="0x0014" value="70" />
+    </boost>
+    <boost opcode="36" timeout_ms="600" name="early_wakeup">
+        <set resource="latency_boost" id="0x01fd" />
+        <set resource="foreground_cpus" id="0x01fc" />
+    </boost>
+    <boost opcode="37" timeout_ms="600" name="transition"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="38" timeout_ms="600" name="animation_boost"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="44" timeout_ms="200" name="ime_show_hide"><set resource="scroll_boost" id="0x01fb" /></boost>
+    <boost opcode="46" timeout_ms="700" name="shade"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="47" timeout_ms="0" name="game">
+        <set resource="cpu_min_little" id="0x0004" value="1190400" />
+        <set resource="cpu_min_big" id="0x0005" value="1766400" />
+        <set resource="uclamp_top_min" id="0x0014" value="60" />
+        <set resource="gpu_min_freq" id="0x0008" value="785000000" />
+        <set resource="gpu_bus_min" id="0x0007" value="11863" />
+        <set resource="cpu_bw_min" id="0x0006" value="11863" />
+    </boost>
+    <boost opcode="52" timeout_ms="1200" name="package_install">
+        <set resource="launch_boost" id="0x01ff" />
+        <set resource="cpuset_dex2oat" id="0x009b" value="0-7" />
+    </boost>
+    <boost opcode="66" timeout_ms="1000" name="launcher_load"><set resource="latency_boost" id="0x01fd" /></boost>
+    <boost opcode="69" timeout_ms="1800" name="game_launch"><set resource="launch_boost" id="0x01ff" /></boost>
+</boosts>

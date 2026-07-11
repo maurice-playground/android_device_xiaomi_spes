@@ -3,3 +3,14 @@ allow system_server proc_tp_gesture:file r_file_perms;
 
 get_prop(system_server, vendor_display_notch_prop)
 get_prop(system_server, vendor_persist_camera_prop)
+
+allow system_server vendor_sysfs_battery_supply:file r_file_perms;
+
+# AxBurstEngine CPU frequency controls
+allow system_server sysfs_devices_system_cpu:dir search;
+allow system_server sysfs_devices_system_cpu:file rw_file_perms;
+
+# AxBurstEngine QCOM performance controls
+allow system_server sysfs_msm_subsys:dir search;
+allow system_server sysfs_msm_subsys:file rw_file_perms;
+allow system_server vendor_latency_device:chr_file rw_file_perms;

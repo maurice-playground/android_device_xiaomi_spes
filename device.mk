@@ -25,6 +25,23 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
+# AxionOS
+HBM_SUPPORTED := true
+HBM_NODE := /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
+PERF_GOV_SUPPORTED := true
+PERF_DEFAULT_GOV := schedutil
+TORCH_STR_SUPPORTED := true
+TARGET_SUPPORTED_REFRESH_RATES := 60,90
+
+# AxBurstEngine
+TARGET_DISABLES_LIBPERF := true
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/axion/ax_perf_boosts.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_boosts.xml \
+    $(LOCAL_PATH)/configs/axion/ax_perf_resources.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_resources.xml \
+    $(LOCAL_PATH)/configs/axion/ax_perf_thermal.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_thermal.xml \
+    $(LOCAL_PATH)/configs/axion/ax_perf_threads.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_perf_threads.xml
+
 # Enable Dynamic partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

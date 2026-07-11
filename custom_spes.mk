@@ -16,6 +16,15 @@ $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
+# AxionOS
+AXION_CAMERA_REAR_INFO := 50,8,2,2
+AXION_CAMERA_FRONT_INFO := 13
+AXION_MAINTAINER := Angaddeep_Singh
+AXION_PROCESSOR := Qualcomm_Snapdragon_680_(SM6225)
+
+TARGET_ENABLE_BLUR := true
+TARGET_INCLUDE_AXFX := true
+
 # Product Specifics
 PRODUCT_NAME := custom_spes
 PRODUCT_DEVICE := spes

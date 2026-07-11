@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<perf-config>
+    <atmc>
+        <cpu_levels>
+            <level id="1" little="300,1900" big="300,2400" />
+            <level id="2" little="300,1805" big="300,2208" />
+            <level id="3" little="300,1517" big="300,1766" />
+            <level id="4" little="300,1190" big="300,1344" />
+            <level id="5" little="300,940" big="300,1056" />
+            <level id="6" little="300,691" big="300,806" />
+        </cpu_levels>
+        <gpu_levels>
+            <level id="1" min="5" max="0" />
+            <level id="2" min="5" max="1" />
+            <level id="3" min="5" max="2" />
+            <level id="4" min="5" max="3" />
+            <level id="5" min="5" max="4" />
+            <level id="6" min="5" max="5" />
+        </gpu_levels>
+    </atmc>
+</perf-config>
