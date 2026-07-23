@@ -1,3 +1,6 @@
 allow hal_health_default sysfs_wakeup:dir r_dir_perms;
 allow hal_health_default sysfs_wakeup:file r_file_perms;
 allow hal_health_default sysfs:file { getattr open read };
+
+allow hal_health_default sysfs_uhid:dir search;
+allow hal_health_default sysfs_uhid:file r_file_perms;
