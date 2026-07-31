@@ -119,15 +119,6 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
-# AxionAOSP
-HBM_SUPPORTED := true
-HBM_NODE := /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
-PERF_GOV_SUPPORTED := true
-PERF_DEFAULT_GOV := schedutil
-TARGET_SUPPORTED_REFRESH_RATES := 60,90
-
-TARGET_DISABLES_LIBPERF := true
-
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1 \
