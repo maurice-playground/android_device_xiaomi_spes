@@ -50,3 +50,5 @@ debug.hwui.skia_use_perfetto_track_events=false
 persist.sys.ax_debug_enabled=1
 ro.adb.secure=0
 
+# LunarisAOSP
+ro.lunaris.maintainer=spesmynuts
