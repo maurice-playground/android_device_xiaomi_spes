@@ -479,3 +479,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.usb.config=mtp,adb
 endif
+
+# Axion
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/axion/ax_kernel_manager.xml:$(TARGET_COPY_OUT_VENDOR)/etc/ax_kernel_manager.xml
